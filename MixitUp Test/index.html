@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=320, initial-scale=1, maximum-scale=1, user-scalable=1"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/> 
+
+		<!--[if lt IE 9]>
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+		<![endif]-->
+		
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,700' rel='stylesheet' type='text/css'/>
+		<link rel="stylesheet" type="text/css" href="template.css"/>
+		<link rel="shortcut icon" type="image/x-icon" href="im/favicon.ico"/>
+		
+		<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.mixitup.min.js"></script>
+		
+
+		
+		<script type="text/javascript">
+		
+			$(function(){
+				$('#Grid').mixitup();
+			});
+			
+		</script>
+		
+		<title>Task Manager</title>
+	</head>
+	<body>
+		<div class="wrapper">
+
+			<!-- FILTER CONTROLS -->
+			
+			<div class="controls">	
+				<h3>Filter Controls</h3>
+				<ul class="toolbar">
+					<li class="filter" data-filter="all">Show All</li>
+					<li class="filter" data-filter="category_1">My Tasks</li>
+					<li class="filter" data-filter="category_2">Other Tasks</li>
+					<li class="filter" data-filter="category_3">ToDo</li>
+					<li class="filter" data-filter="category_4">Events</li>
+					<li class="filter" data-filter="category_5">Notes</li>
+					<li class="filter" data-filter="category_6">Chat</li>
+				</ul>
+			</div>
+
+			<hr/>
+			
+			<!-- GRID -->
+			
+			<ul id="Grid">
+				<li class="mix category_1" data-cat="1">
+					<a href="#">
+                    <img src="icons/tasks.png">
+                    <p>My tasks</p>
+                	</a>                
+				</li>
+				<li class="mix category_2" data-cat="2">
+					<a href="#">
+					<img src="icons/chat2.png">
+					<p>Other tasks</p>
+				    </a>
+				</li>
+				<li class="mix category_3" data-cat="3">
+					<a href="#">
+					<img src="icons/todo.png">
+					<p>ToDo</p>
+				    </a>
+				</li>
+				<li class="mix category_4" data-cat="4">
+					<a href="#">
+					<img src="icons/calendar.png">
+					<p>Events</p>
+				    </a>
+				</li>
+				<li class="mix category_5" data-cat="5">
+					<a href="#">
+					<img src="icons/notes.png">
+					<p>Notes</p>
+				    </a>
+				</li>
+				<li class="mix category_6" data-cat="6">
+					<a href="#">
+					<img src="icons/chat.png">
+					<p>Chat</p>
+				    </a>
+				</li>
+				<li class="gap"></li> <!-- "gap" elements fill in the gaps in justified grid -->
+			</ul>
+			
+		</div>
+		
+		<script>
+		
+		var _gaq = _gaq || [];
+	  	_gaq.push(['_setAccount', 'UA-714221-40']);
+	  	_gaq.push(['_trackPageview']);
+
+	  	(function() {
+	    	var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    	ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    	var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  	})();
+	
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Portfolio</title>
+    	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+        
+        <link href="jquery-mobile/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+        <link href="style/main.css" rel="stylesheet" type="text/css" />
+        <link href="panning-slideshow.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'/>
+
+        <script src="jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="jquery-mobile/jquery.mobile-1.3.0.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/jquery.timer.js"></script>
+        <script src="js/image-rotator.js"></script>
+        
+    </head> 
+<body> 
+
+<!--MAIN PAGE-->       
+<div data-role="page" id="homePage" class="my-page">
+    
+    
+    <div data-role="header" class="logo">
+        <div class="hr">
+           <img src='images/ornamental-sm.png'>
+           <h1>Ellie's Mobile Web Design</h1>
+           <img src='images/ornamental-sm.png'>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div class="banner"> </div>
+    </div><!-- /header -->
+       
+    <div data-role="content">
+    <div id="window">       
+        <ul id="slideshow">
+            <li class="box1"><img src="images/2.jpg" /></li>
+            <li class="box2"><img src="images/1.jpg" /></li>
+            <li class="box3"><img src="images/3.jpg" /></li>
+            <li class="box4"><img src="images/4.jpg" /></li>
+        </ul>
+    </div>  
+        <div id="content">
+        <h1>Latest Projects</h1>
+        <p>This slideshow uses a few amazing photos found on Flickr. You can find links to them below. This is only the example page. Head back to <a href="#" title="Panning Slideshow Tutorial">Build Internet for the full tutorial</a> and explanation.</p>
+    </div>
+
+    <div class="clearer"></div>
+    
+<div id="container">
+    <div id="columns">
+    <div class="column-1-3">
+        <div class="white-box">
+            <div class="box-title">
+                Services
+                <div class="subtitle"><img src="images/subtitle-what-we-can-do.png" alt="what we can do" /></div>
+                <div class="icon"><img src="images/title-icon-services.png" alt="" /></div>
+            </div>
+            
+            <div class="box-content fixed-height">
+                <ul class="services">
+                    <li class="icon-web-dev"><a href="#">Web Design &amp; Development &raquo;</a></li>
+                    <li class="icon-seo"><a href="#">Search Engine Optimization &raquo;</a></li>
+                    <li class="icon-logo-design"><a href="#">Logo Design &raquo;</a></li>
+                    <li class="icon-mobile-apps"><a href="#">Web &amp; Mobile Apps &raquo;</a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--/end .column-1-3 -->
+    
+    <div class="column-1-3">
+        <div class="white-box">
+            <div class="box-title">
+                Portfolio
+                <div class="subtitle"><img src="images/subtitle-our-previous-works.png" alt="our previous works" /></div>
+                <div class="icon"><img src="images/title-icon-portfolio.png" alt="" /></div>
+            </div>
+            
+            <div class="box-content fixed-height">
+                <ul class="portfolio">
+                    <li><a href="#"><img src="images/5.jpg" /></a></li>
+                    <li><a href="#"><img src="images/6.jpg" /></a></li>
+                    <li><a href="#"><img src="images/7.png" /></a></li>
+                    <li><a href="#"><img src="images/8.jpg" /></a></li>
+                    <li><a href="#"><img src="images/9.png" /></a></li>
+                    <li><a href="#"><img src="images/10.jpg" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div><!--/end .column-1-3 -->
+        
+    <div class="column-1-3">
+        <div class="white-box">
+            <div class="box-title">
+                Hire us
+                <div class="subtitle"><img src="images/subtitle-lets-work-together.png" alt="let's work together" /></div>
+                <div class="icon"><img src="images/title-icon-contact.png" alt="" /></div>
+            </div>
+            
+            <div class="box-content fixed-height">
+                <form action="" method="post" >
+                    <div data-role="fieldcontain">  
+                        <input data-mini="true"  name="textinput-fc" id="textinput-fc" placeholder="Name" value="" type="text">
+                    </div>
+                    <div data-role="fieldcontain">
+                        <input data-mini="true"  name="textinput-fc" id="textinput-fc" placeholder="Email" value="" type="text">
+                    </div>
+                    <textarea  data-mini="true" cols="10" rows="4" name="textarea" placeholder="Message" id="textarea" ></textarea>
+                    <div align="right">
+                    <button data-mini="true" data-inline="true" data-theme="b" id="submit" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div><!--/end .column-1-3 -->
+    <div class="clearer"></div>
+    </div><!-- /content -->
+</div><!--/end container -->
+        <div id="footer">
+        <div class="footer-content">
+            Copyright &copy; 2010-2011 <a href="#">Ellie's Web Design</a>. Coded by <a href="#">Elena Momtcheva</a>
+        </div>
+        </div><!--/end #footer -->
+
+
+
+</div><!--/MAIN PAGE-->
+        
+</body>
+</html>

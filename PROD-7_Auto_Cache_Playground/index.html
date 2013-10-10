@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PROD-7_Auto_Cache</title>
+        
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css"/>
+    <link rel="stylesheet" href="css/tolito-1.0.4.min.css"/>
+    <link rel="stylesheet" href="css/breadcrumb.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+        
+    <script src="cordova.js"></script>    
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+    
+    <script src="lib/tolito-1.0.4.min.js"></script>  
+    <script src="lib/handlebars-1.0.0-rc.3.js"></script>
+    <script src="lib/jqm.page.params.js"></script> 
+    <script src="lib/local-cache.js"></script> 
+    <script src="lib/jquery.validate.js"></script>
+        
+    <script src="js/app.js"></script> 
+    <script src="js/fileSystem.js"></script>    
+    <script src="js/cache.js"></script>    
+    
+    <script src="js/explorer.js"></script>    
+    <script src="js/login.js"></script>
+    <script src="js/biz.js"></script>    
+</head>
+
+<body>
+        
+<!-- MAIN PAGE -->
+<div data-role="page" id="mainPage" data-theme="c">
+
+  <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <a href="#loginPanel" data-icon="edit" data-iconpos="notext"></a>
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+  </div>
+
+  <div data-role="content">
+    <h2>Main Content</h2>
+    PROD-7 Build #98
+  </div><!-- /content -->
+ 
+  <!-- Footer -->
+  <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#" id="home" data-icon="custom" data-transition="slide" class="ui-btn-active">Home</a></li>
+            <li><a href="#navPage" id="nav" data-icon="custom" data-transition="slide">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#cachePage" id="cache" data-icon="custom" data-transition="slide">Offline Content</a></li>
+            <li><a href="settings.html" id="gear" data-icon="custom" data-transition="slide">Settings</a></li>
+        </ul>
+      </div>
+  </div><!-- /footer -->        
+
+  <!-- LEFT PANEL - Login -->
+  <div data-role="panel" data-position="left" data-display="overlay" id="loginPanel" data-theme="a">
+     <form class="userform">
+        <h2>Sign In</h2>
+
+        <label for="username">Username:</label>
+        <input name="username" id="username" value="" data-clear-btn="true" data-mini="true" type="text">
+        <label for="password">Password:</label>
+        <input name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true" type="password">
+
+         <div class="ui-grid-a">
+             <div class="ui-block-a"><a href="#" data-rel="close" data-role="button" data-theme="c" data-mini="true">Cancel</a></div>
+             <div class="ui-block-b"><a href="#" data-rel="close" data-role="button" data-theme="b" data-mini="true">Sign In</a></div>
+         </div>
+     </form>
+  </div><!-- /panel -->
+</div><!-- /page -->        
+
+<!-- NAVIGATION -->
+<div data-role="page" id="navPage" data-theme="c">
+
+   <!-- Header -->
+   <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+   </div>
+
+   <!-- Content - Data Sources -->
+   <div data-role="content" >
+      <ul class="breadcrumb" id="navBreadcrumb">
+      </ul>        
+        
+      <ul class="dataSources" data-role="listview" data-inset="true">
+         <script id="dsTempl" type="text/x-handlebars-template">
+            {{#each this}}
+            <li>
+               <a href="#projects?dsId={{dsId}}&name={{label}}" data-transition="slide">
+                   <img src="img/ds.png">
+                   <h3>{{label}}</h3>
+               </a>
+            </li>
+            {{/each}}                            
+         </script>
+      </ul>       
+   </div><!-- /content -->
+
+   <!-- Footer -->
+   <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#mainPage" id="home" data-icon="custom" data-transition="slide">Home</a></li>
+            <li><a href="#" id="nav" data-icon="custom" data-transition="slide" class="ui-btn-active">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#cachePage" id="cache" data-icon="custom" data-transition="slide">Offline Content</a></li>
+            <li><a href="settings.html" id="gear" data-icon="custom" data-transition="slide">Settings</a></li>
+        </ul>
+      </div>
+   </div>        
+</div><!-- /page -->       
+          
+<!-- PROJECTS -->
+<div data-role="page" id="projects" data-theme="c" data-dom-cache="true">
+
+   <!-- Header -->
+   <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+   </div>
+
+   <!-- Content - Projects-->
+   <div data-role="content" >
+      <ul class="breadcrumb" id="projectsBreadcrumb">
+          <li><a href="#mainPage" title="Home"><img src="css/icons/home.gif" alt="Home" class="home" /></a></li>
+          <li><a href="#navPage" data-transition="slide" data-direction="reverse">Data Sources</a></li> 
+          <li>Projects</li>
+      </ul>
+       
+      <br/><br/>  
+      <ul class="projects" data-role="listview" data-inset="true" 
+          data-split-theme="c" data-split-icon="plus" 
+          data-filter="true" data-filter-placeholder="filter...">
+          
+      </ul>       
+   </div><!-- /content -->
+
+   <!-- Footer -->
+   <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#mainPage" id="home" data-icon="custom" data-transition="slide">Home</a></li>
+            <li><a href="#navPage" id="nav" data-icon="custom" data-transition="slide">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#cachePage" id="cache" data-icon="custom" data-transition="slide">Offline Content</a></li>
+            <li><a href="settings.html" id="gear" data-icon="custom" data-transition="slide">Settings</a></li>
+        </ul>
+      </div>
+   </div>                 
+          
+    <!-- CUSTOM POPUP DIALOG -->   
+    <div data-role="popup" id="prj_popup" class="ui-content" style="max-width:320px">
+        <div data-role="header" data-theme="a" class="ui-corner-top">
+            <h1>Properties</h1>
+        </div>        
+        <div id="projectDialogContent"
+             data-role="content" 
+             data-theme="c" 
+             class="ui-content">
+            
+        </div>
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+    </div>          
+              
+</div><!-- /page -->
+
+<!-- DOCUMENT -->          
+<div data-role="page" id="document" data-theme="c">
+
+   <!-- Header -->
+   <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+   </div>
+
+   <!-- Content - Document Details -->
+   <div data-role="content" >
+      <ul class="breadcrumb" id="documentBreadcrumb">
+          <li><a href="#mainPage" title="Home"><img src="css/icons/home.gif" alt="Home" class="home" /></a></li>
+          <li><a href="#navPage" data-transition="slide" data-direction="reverse">Data Sources</a></li> 
+          <li>Projects</li>
+          <li>Document</li>
+      </ul>        
+       
+       <a href="javaScript: Document.downloadFile();" data-role="button" data-icon="gear" data-theme="b" data-inline="true">Download File</a>
+       <div id="progressbar"></div>
+       
+       <div id="documentContent">
+       </div>        
+   </div><!-- /content -->
+
+   <!-- Footer -->
+   <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#mainPage" id="home" data-icon="custom" data-transition="slide">Home</a></li>
+            <li><a href="#navPage" id="nav" data-icon="custom" data-transition="slide">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#cachePage" id="cache" data-icon="custom" data-transition="slide">Offline Content</a></li>
+            <li><a href="settings.html" id="gear" data-icon="custom" data-transition="slide">Settings</a></li>
+        </ul>
+      </div>
+   </div>                 
+</div><!-- /page -->
+    
+    
+<!-- CACHE PAGE & DIALOGS-->          
+<div data-role="page" id="cachePage" data-theme="c">
+
+   <!-- Header -->
+   <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <a id="backBtn" href="#" data-icon="arrow-l">Back</a>
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+   </div>
+
+   <div data-role="content" >
+        <div class="ui-grid-c" id="dirContent">
+        	<div class="ui-block-a">
+        		<div class="folder"><p>folder name</p></div>
+        	</div>
+        	<div class="ui-block-b">
+        		<div class="folder"><p>folder name</p></div>
+        	</div>
+        	<div class="ui-block-c">
+        		<div class="folder"><p>folder name</p></div>
+        	</div>
+        	<div class="ui-block-d">
+        		<div class="folder"><p>folder name</p></div>
+        	</div>
+            
+        	<div class="ui-block-a">
+        		<div class="file"><p>file name</p></div>
+        	</div>
+        	<div class="ui-block-b">
+        		<div class="file"><p>file name</p></div>
+        	</div>
+        	<div class="ui-block-c">
+        		<div class="file"><p>file name</p></div>
+        	</div>
+        	<div class="ui-block-d">
+        		<div class="file"><p>file name</p></div>
+        	</div>
+        </div>
+   </div><!-- /content -->
+    
+    <a id="menu" href="#menuOptions" data-rel="dialog" data-transition="slidedown">file details</a>
+    <a id="get_file_details" href="#fileDetails" data-rel="dialog" data-transition="slidedown">file details</a>
+    
+    <!-- Footer -->
+   <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#mainPage" id="home" data-icon="custom" data-transition="slide">Home</a></li>
+            <li><a href="#navPage" id="nav" data-icon="custom" data-transition="slide">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#" id="cache" data-icon="custom" data-transition="slide" class="ui-btn-active">Offline Content</a></li>
+            <li><a href="settings.html" id="gear" data-icon="custom" data-transition="slide">Settings</a></li>
+        </ul>
+      </div>
+   </div> 
+     
+</div><!-- /page -->        
+
+<div id="menuOptions" data-role="page">
+	  <div data-role="header">
+           <h1>Choose</h1>
+      </div>
+      <div data-role="content">
+      	<input type="button" id="openBtn" data-theme="e" value="Open">
+      	<input type="button" id="copyBtn" value="Copy">
+      	<input type="button" id="moveBtn" value="Move">
+      	<input type="button" id="pasteBtn" value="Paste" disabled>
+      	<input type="button" id="deleteBtn" value="Delete">
+      </div>
+</div>
+
+<div id="fileDetails" data-role="page">
+	<div data-role="header">
+        <h1>File</h1>
+    </div>
+    <div id="file_details" data-role="content"></div>
+</div>  
+    
+
+    
+<!-- TEMPLATES -->         
+<script id="projectsTempl" type="text/x-handlebars-template">
+    {{#each this}}
+        <li>
+           <a href="#projects?dsId={{dsId}}&prjId={{prjId}}&name={{name}}" data-transition="slide" data-ajax="false">
+               <img src="img/{{image}}.png">
+               <h3>{{name}}</h3>
+               <span class="ui-li-count {{counterStyle}}" style="margin-top:-20px;">{{itemCount}}</span>
+           </a>
+               
+           <a href="javascript:void(0)" onclick="extPrjDlgContent('{{dsId}}','{{prjId}}')" data-rel="popup" data-position-to="window" data-transition="flow">
+               Custom Properties
+           </a>
+        </li>
+    {{/each}}                            
+</script>
+          
+<script id="documentsTempl" type="text/x-handlebars-template">
+    {{#each this}}
+        <li>
+           <a href="#document?dsId={{dsId}}&docId={{docId}}&name={{name}}" data-transition="slide" data-ajax="false">
+              <img src="img/{{image}}.png">
+              <h3>{{name}}</h3>
+           </a>         
+        </li>
+    {{/each}}                            
+</script>         
+          
+<script id="breadcrumbTempl" type="text/x-handlebars-template">
+    {{#each this}}
+        <li>
+          <a href="{{href}}" data-transition="slide" data-direction="reverse" data-ajax="false">
+             {{name}}
+          </a>         
+        </li>
+    {{/each}}                            
+</script>              
+ 
+    
+<!-- INIT UI -->                 
+ <script>
+    app.initialize();
+     
+    Breadcrumb.init({
+	   template: $('#breadcrumbTempl').html()
+	});     
+ </script>
+</body>
+</html>
+

@@ -1,0 +1,75 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>	
+
+	<script type="text/javascript" src="jsTree/jquery.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.jstree.js"></script>
+</head>
+<body>
+	
+	<div class="panel">
+		<h3>Using the Checkbox Plugin</h3>
+
+		<div id="demo1" class="demo" style="height:198px;">
+
+			<ul>
+				<li id="phtml_1" ="jstree-closed jstree-undetermined">
+						<a  href="#">Root node 1</a>
+					<ul>
+						<li id="phtml_2" class="jstree-checked jstree-leaf jstree-last">
+							<a href="#">Child node 1</a>
+						</li>
+
+						<li id="phtml_3"  class="jstree-leaf jstree-unchecked">
+							<a href="#">Child node 2</a>
+						</li>
+					</ul>
+				</li>
+
+					<li id="phtml_4" class="jstree-leaf jstree-unchecked jstree-last">
+						<a href="#">Root node 2</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		$(function () {
+			$("#demo1").jstree({ 
+				"plugins" : [ "themes", "html_data", "checkbox", "sort", "ui" ]
+			});
+		});
+
+
+	</script>
+
+<style>
+
+	.panel {
+	    margin: 0px 20px;
+	}
+
+	.demo {
+	    width: 255px;
+	    float: left;
+	    margin: 0px;
+	    border: 1px solid gray;
+	    background: none repeat scroll 0% 0% white;
+	    overflow: auto;
+	}
+
+	h3 {
+	    margin: 0px;
+	    padding: 0.5em 0px;
+	    font-size: 11.5pt;
+	    font-family: Georgia;
+	    color: gray;
+	    clear: both;
+	}
+
+</style>
+
+</body>
+</html>

@@ -1,0 +1,239 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>	
+
+	<script type="text/javascript" src="jsTree/jquery.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.jstree.js"></script>
+</head>
+<body>
+	
+<div class="panel">
+	<h3>Creating nodes</h3>
+
+	<input id="create_1" class="button" type="button" style="float:left;" value="create_1" ></input>
+	<input id="create_2" class="button" type="button" style="float:left;" value="create_2" ></input>
+	<input id="create_3" class="button" type="button" style="float:left;" value="create_3" ></input>
+
+	<div id="demo1" class="demo" style="height: 272px;">
+
+	<ul>
+		<li id="phtml_1">
+				<a  href="#">Root node 1</a>
+			<ul>
+				<li id="phtml_2">
+					<a href="#">Child node 1</a>
+				</li>
+
+				<li id="phtml_3">
+					<a href="#">Child node 2</a>
+				</li>
+			</ul>
+
+		</li>
+
+			<li id="phtml_4">
+				<a href="#">Root node 2</a>
+			</li>
+	</ul>
+	</div>
+
+	<h3>Removing nodes</h3>
+
+	<input id="remove_1" class="button" type="button" value="remove_1"></input>
+	<input id="remove_2" class="button" type="button" value="remove_2"></input>
+
+	<div id="demo2" style="height: 272px;" class="demo">
+		<ul>
+			<li id="rhtml_1">
+					<a href="#">Root node 1</a>
+				<ul>
+					<li id="rhtml_2">
+						<a href="#">Child node 1</a>
+					</li>
+
+					<li id="rhtml_3">
+						<a href="#">Child node 2</a>
+					</li>
+				</ul>
+			</li>
+
+			<li id="rhtml_4">
+				<a href="#">Root node 2</a>
+			</li>	
+		</ul>
+	</div>
+
+	<h3>Renaming nodes</h3>
+
+	<input id="rename_1" class="button" type="button" value="rename_1"></input>
+	<input id="rename_2" class="button" type="button" value="rename_2"></input>
+
+	<div id="demo3" style="height: 272px;" class="demo">
+		<ul>
+			<li id="shtml_1">
+				<a href="#">Root node 1</a>
+
+				<ul>
+					<li id="shtml_2">
+						<a href="#">Child node 1</a>
+					</li>
+
+					<li id="shtml_3">
+						<a href="#">Child node 2</a>
+					</li>
+				</ul>
+			</li>
+
+			<li id="shtml_4">
+				<a href="#">Root node 2</a>
+			</li>
+		</ul>
+	</div>
+
+
+	<h3>Moving nodes</h3>
+
+	<input id="move_1" class="button" type="button" value="move_1"></input>
+	<input id="move_2" class="button" type="button" value="move_2"></input>
+	<input id="move_3" class="button" type="button" value="move_3"></input>
+
+	<div id="demo4" style="height: 272px;" class="demo">
+		<ul>
+			<li id="thtml_1">
+				<a href="#">Root node 1</a>
+
+				<ul>
+					<li id="thtml_2">
+						<a href="#">Child node 1</a>
+						</li>
+
+					<li id="thtml_3">
+						<a href="#">Child node 2</a>
+					</li>
+				</ul>
+			</li>
+
+			<li id="thtml_4">
+				<a href="#">Root node 2</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+
+	<script>
+		//Create
+		$(function () {
+			$("#create_1").click(function () { 
+				$("#demo1").jstree("create"); 
+			});
+			$("#create_2").click(function () { 
+				$("#demo1").jstree("create","#phtml_1","first","Enter a new name"); 
+			});
+			$("#create_3").click(function () { 
+				$("#demo1").jstree("create",-1,false,"No rename",false,true); 
+			});
+			$("#demo1").jstree({ 
+				"ui" : {
+					"initially_select" : [ "phtml_2" ]
+				},
+				"core" : { "initially_open" : [ "phtml_1" ] },
+				"plugins" : [ "themes", "html_data", "ui", "crrm" ]
+			});
+		});
+
+
+		//Remove
+		$(function () {
+			$("#remove_1").click(function () { 
+				$("#demo2").jstree("remove"); 
+			});
+			$("#remove_2").click(function () { 
+				$("#demo2").jstree("remove","#rhtml_1"); 
+			});
+			$("#demo2").jstree({ 
+				"ui" : {
+					"initially_select" : [ "rhtml_2" ]
+				},
+				"core" : { "initially_open" : [ "rhtml_1" ] },
+				"plugins" : [ "themes", "html_data", "ui", "crrm" ]
+			});
+		});
+
+
+		//Rename
+		$(function () {
+			$("#rename_1").click(function () { 
+				$("#demo3").jstree("rename"); 
+			});
+			$("#rename_2").click(function () { 
+				$("#demo3").jstree("rename","#shtml_1"); 
+			});
+			$("#demo3").jstree({ 
+				"ui" : {
+					"initially_select" : [ "shtml_2" ]
+				},
+				"core" : { "initially_open" : [ "shtml_1" ] },
+				"plugins" : [ "themes", "html_data", "ui", "crrm" ]
+			});
+		});
+
+
+		//Move
+		$(function () {
+			$("#move_1").click(function () { 
+				$("#demo4").jstree("move_node","#thtml_4","#thtml_1"); 
+			});
+			$("#move_2").click(function () { 
+				$("#demo4").jstree("move_node","#thtml_4","#thtml_1", "before"); 
+			});
+			$("#move_3").click(function () { 
+				$("#demo4").jstree("move_node","#thtml_1","#thtml_4"); 
+			});
+			$("#demo4").jstree({ 
+				"crrm" : {
+					"move" : {
+						"default_position" : "first",
+						"check_move" : function (m) { return (m.o[0].id === "thtml_1") ? false : true;  }
+					}
+				},
+				"ui" : {
+					"initially_select" : [ "thtml_2" ]
+				},
+				"core" : { "initially_open" : [ "thtml_1" ] },
+				"plugins" : [ "themes", "html_data", "ui", "crrm" ]
+			});
+		});
+
+	</script>
+
+<style>
+
+	.panel {
+	    margin: 0px 20px;
+	}
+
+	.demo {
+	    width: 255px;
+	    float: left;
+	    margin: 0px;
+	    border: 1px solid gray;
+	    background: none repeat scroll 0% 0% white;
+	    overflow: auto;
+	}
+
+	h3 {
+	    margin: 0px;
+	    padding: 0.5em 0px;
+	    font-size: 11.5pt;
+	    font-family: Georgia;
+	    color: gray;
+	    clear: both;
+	}
+
+</style>
+
+</body>
+</html>

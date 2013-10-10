@@ -1,0 +1,413 @@
+<!DOCTYPE html> 
+<html> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        
+    <title>Pastry Shop</title> 
+    <link rel="stylesheet" href="content/css/jquery.mobile.structure-1.0.1.CSS" />
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+ 
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+      
+         <!--this script makes the back button to show in nested list 
+        add: data-add-back-btn="false" any time you don't need it-->
+        
+        <script type="text/javascript">
+             $(document).bind("mobileinit", function() {
+                  $.mobile.page.prototype.options.addBackBtn = true;
+             });    
+        </script>  
+        
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+</head> 
+
+<body> 
+    <!-- Main page: -->
+    <div data-role="page"  id="home" data-theme="e">
+        
+        <div class="transparentLayer"></div>
+  
+        <div data-role="content">  
+            <img border="0" src="images/pastry_logo1.png" />
+            <div class="main_list">
+                 <ul data-role="listview" data-inset="true" id="firstUL">
+                    <li><a href="#list" data-transition="pop">Categories</a></li>
+                    <li><a href="#deals">Our Deals</a></li>
+                    <li><a href="#findUs">Find a Store</a></li>   
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#account">My Account</a></li>
+                 </ul>
+            </div>
+        </div><!-- /content -->       
+    </div><!-- /page --> 
+
+
+ <!--  Category-->
+    <div data-role="page" data-theme="a" id="list">
+
+        <div data-role="header" data-theme="a">
+            <a href="#" data-icon="back" data-rel="back">Back</a>
+            <h1>Categories</h1>
+        </div><!-- /header -->
+
+    <div data-role="content"  data-theme="a">   
+        <ul data-role="listview">
+            <li>
+                <img src="images/bread.png" />
+                <h3>Breads</h3>
+                <p>What could be better than homemade bread?</p>
+                    
+                    <ul data-role="listview" data-filter="true">
+                        <li><a href="#listDetails" data-transition="pop">Raisin bread 
+                            <img src="images/raisin_bread.png" /></a> </li>
+                        <li><a href="#listDetails" data-transition="pop">Challah bread
+                            <img src="images/challah_bread.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Cheese bread
+                            <img src="images/cheese_bread.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Garlic bread
+                            <img src="images/garlic_bread.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Croissant
+                            <img src="images/croissant.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">French baguette
+                            <img src="images/french_baguette.png" /></a></li>
+                    </ul>
+           </li>
+
+
+            <li>
+                <img src="images/cookies.png" />
+                <h3>Cookies</h3>
+                <p>Cookies are perfect for any holiday, birthday, special occasion or just because! </p>
+                
+                    <ul data-role="listview" data-filter="true">
+                        <li><a href="#listDetails" data-transition="pop">Chocolate and walnut cookies 
+                            <img src="images/chocolate_walnut.png" /></a> </li>
+                        <li><a href="#listDetails" data-transition="pop">Chocolate chip cookies
+                            <img src="images/chocolate_chip.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Sugar cookies
+                            <img src="images/sugar_cookies.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Orange cookies
+                            <img src="images/orange_cookies.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Czech cookies
+                            <img src="images/czech_cookies.png" /></a></li>
+                        <li><a href="#listDetails" data-transition="pop">Pumpkin cookies
+                            <img src="images/pumpkin_cookies.png" /></a></li>
+                    </ul>
+                
+           </li>
+            
+            <li><a href="#popup2" data-transition="pop" data-rel="dialog">
+                <img src="images/creme_brulee.png" />
+                <h3>Cremes</h3>
+                <p>A thick creamy dessert is a great finale to any meal!</p>
+            </a></li>
+            <li><a href="#popup2" data-transition="pop" data-rel="dialog">
+                <img src="images/philo.png" />
+                <h3>Philo dough</h3>
+                <p>The most unique and interesting Filo Dough Desserts!</p>
+            </a></li>
+            <li><a href="#popup2" data-transition="pop" data-rel="dialog">
+                <img src="images/chocolate_cake.png" />
+                <h3>Cakes</h3>
+                <p>Find the perfect cake to celebrate any event or occasion!</p>
+            </a></li>
+            <li><a href="#popup2" data-transition="pop" data-rel="dialog">
+                <img src="images/cupcakes.png" />
+                <h3>Cupcakes</h3>
+                <p> Most delicious cupcakes each day!</p>
+            </a></li>
+        </ul>       
+    </div><!-- /content --> 
+          
+</div><!-- /page -->
+
+
+<!-- Category List Details-->
+    <div data-role="page" id="listDetails">
+        
+        <div data-role="header">
+            <a href="#" data-icon="back" data-iconpos="notext" data-rel="back">Back</a>
+            <h1>Details</h1>
+            <a href="#home" data-icon="home" data-iconpos="notext" data-direction="reverse">Home</a>
+        </div><!-- /header -->
+
+        <div data-role="content"  data-theme="e">
+   
+                <div class="ui-grid-a" id="pic">  
+                    <div class="ui-block-a"> <strong>Raisin bread</strong>
+                        <img src="images/raisin_bread.png" width="130" height="130"/>
+                    </div>
+                    <div class="ui-block-b"> 
+                        <ul>
+                            <li>10 tablespoons butter</li>
+                            <li>8oz chocolate chip</li>
+                            <li>3 large eggs</li>
+                            <li>3 egg yolks</li>
+                            <li>1 teaspoon vanila</li>
+                            <li>1/2 cup flour</li>
+                        </ul>
+                    </div>
+                </div><!-- /grid-a -->
+                <hr />
+                <h2>Directions</h2>
+                    <ol>
+                        <li>Combine flour, oats, sugar, baking powder, soda, and salt.</li>
+                        <li>In a large bowl, beat the egg lightly. Stir in the milk, oil, and vanilla. Add the mashed banana, and combine thoroughly. Stir the flour mixture into the banana mixture until just combined. Line a 12-cup muffin tin with paper bake cups, and divide the batter among them.</li>
+                        <li>Bake at 400 degrees F (205 degrees C) for 18 to 20 minutes.</li>
+                    </ol>
+        </div><!-- /content -->
+        
+        <div data-role="footer">
+             <h4>Details</h4>
+        </div>
+
+    </div><!-- /page -->
+
+
+<!--  Our Deals-->
+    <div data-role="page" id="deals" data-add-back-btn="false">
+        <div data-role="header" data-theme="a">
+            <h3>Our Deals</h3>
+        </div><!-- /header -->
+
+        <div data-role="content"  data-theme="d">
+            <img src="images/sale.png" width="270" height="130"/>
+            <h2>Deal of the day:</h2>
+            <p><h4>$20 towards Cakes and More!!!</h4></p>
+            <p><i>Description:</i></p>
+            <p>Nothing welcomes guests more than a piece of warm, homemade cake. For when we don’t have time to sweat it out in the kitchen,<b><i> Pastry Shop</i> </b>is there to help.Perfect for any occasion or celebration – from birthdays parties to baby showers, holidays and even anniversaries - share some yummy goodness with today's offer for $20 to spend at <b><i>Pastry Shop</i></b>. With a variety of flavors to choose from, like chocolate chocolate chip or red velvet, your mouth will be watering before you even send the order in! Made from fresh ingredients, bring everyone together for a delicious bite, with today’s offer!</p>   
+        
+    
+            <p>
+                <a href="#home" data-direction="reverse" data-role="button" data-theme="e">Back </a>
+            </p> 
+            
+         </div><!-- /content -->
+        
+        <div data-role="footer">
+            <h4>Our Deals</h4>
+        </div>
+    </div><!-- /page -->
+  
+
+   <!-- Find a Store -->
+    <div data-role="page" id="findUs" data-theme="a" data-add-back-btn="false">
+        <div data-role="header" >
+            <h3>Contact Us</h3>
+        </div>
+            
+            
+    <div data-role="content" >
+       
+		<div data-role="controlgroup" data-type="horizontal">
+           <a href="#" data-role="button" data-icon="home" data-theme="b">Phone Us</a>
+           <a href="https://maps.google.com/maps?hl=en&tab;=wl" data-role="button" target="_blank" data-icon="grid" data-theme="b">View Map</a>
+        </div>
+         <p>&nbsp;</p>     
+        <div class="ui-grid-a" id="contact_infos">	
+    		<div class="ui-block-a">
+        		<h3> Contact us</h3>
+        		<address>123 Main Street</address>
+        		<address> Spring Park</address>
+                <address>MN, 55666</address>
+    		</div>		
+    		<div class="ui-block-b">
+    		    <img src="images/maps.png"/>
+		    </div>
+	    </div><!-- /grid-a -->
+                
+                
+
+                <address><strong>Phone:</strong> <a href="#">(212)000-0000</a></address>
+                <address><strong>Email: </strong><a href="#">info@22lines.com</a></address>
+                <address> </address>
+            	
+        <p>
+            <a href="#home" data-direction="reverse" data-role="button" data-theme="e">Back </a>
+        </p>
+        
+    </div>
+    </div><!-- /page -->
+    
+
+    <!--  About Us-->
+    <div data-role="page" id="about" data-add-back-btn="false">
+        <div data-role="header" data-theme="a">
+            <h3>About Us</h3>
+        </div><!-- /header -->
+
+        <div data-role="content"  data-theme="e">
+            <div data-role="collapsible-set" data-theme="a" data-content-theme="c" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d">
+                <div data-role="collapsible">
+                    <h3>Our Company</h3>
+                    <p>Specify the open and close icons on the set to apply it to all the collapsibles within.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Resources</h3>
+                    <p>This collapsible also gets the icon from the set.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>News</h3>
+                    <p>The icons here are applied to this collapsible specifically, thus overriding the set icons.</p>
+                </div>
+            </div>
+            
+         <div data-role="collapsible" data-collapsed="false" data-content-theme="c" data-theme="a">
+                						<h3>Send Us A Message</h3>			
+            <p>
+                <div id="contact-form-wrapper">
+					<form action="forms-sample-selfsubmit.php" method="post">
+						<div data-role="fieldcontain" class="ui-hide-label no-field-separator">
+							<label for="name">Name*</label>
+						    <input type="text" id="name" name="name" placeholder="Name*" class="required" />
+						</div>
+						<div data-role="fieldcontain" class="ui-hide-label no-field-separator">	
+							<label for="email">Email*</label>
+						    <input type="email" id="email" name="email" placeholder="Email*" class="email required"/>
+						</div>
+						<div data-role="fieldcontain" class="ui-hide-label no-field-separator">	
+							<label for="message">Message*</label>
+							<textarea name="textarea" id="message" placeholder="Your message*" class="required"></textarea>
+						</div>
+							<button type="submit" name="submit" data-theme="a" value="submit-value">Send Message</button> 
+					</form>
+			    </div>
+
+            </p>
+         </div>
+    
+        <p>
+            <a href="#home" data-direction="reverse" data-role="button" data-theme="e">Back </a>
+        </p> 
+        
+        </div><!-- /content -->
+        
+        <div data-role="footer">
+            <h4>About Us</h4>
+        </div>
+    </div><!-- /page -->
+    
+    
+     <!--  My Account-->
+     <div data-role="page" id="account" data-theme="a"  data-add-back-btn="false">
+        
+        <div data-role="header" data-theme="a">
+            <h3>Sign In</h3>
+        </div><!-- /header -->
+        
+        <div data-role="content"  data-theme="a">
+        
+           <form class="userform">
+              <h2>Sign In</h2>
+                
+              <label for="name">Username:</label>
+              <input name="username" id="username" value="" data-clear-btn="true" data-mini="true" type="text">
+                    
+              <label for="password">Password:</label>
+              <input name="password" id="password" value="" data-clear-btn="true" autocomplete="off" data-mini="true" type="password">
+                
+               <div class="ui-grid-a">
+                   <div class="ui-block-a"><button type="submit" data-theme="c" data-mini="true">Cancel</button></div>
+                   <div class="ui-block-b"><button type="submit" data-theme="b" data-mini="true">Sign In</button></div>
+               </div>        
+           </form>
+                  
+           <p><strong>Create an account?</strong></p>
+		   <a href="#popup" data-transition="pop" data-role="button" data-theme="e">Register</a>
+         
+       </div><!-- /content --> 
+  </div><!-- /page -->  
+                  
+                  
+  <!-- Popup dialog-->
+     <div data-role="page" id="popup" data-theme="b" data-add-back-btn="false">
+        
+        <div data-role="header" data-theme="a">
+            <h3>Account</h3>
+        </div><!-- /header -->
+        
+        <div data-role="content"  data-theme="b">        
+           <div class="content-primary">
+
+		<form action="#" method="get">
+
+			<div data-role="fieldcontain">
+	         <label for="name">First Name:</label>
+	         <input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+
+			<div data-role="fieldcontain">
+	         <label for="name">Last name:</label>
+	         <input type="text" name="name" id="name" value="" data-mini="true" />
+			</div>
+
+
+			<div data-role="fieldcontain">
+			    <fieldset data-role="controlgroup" data-mini="true">
+			    	<legend>Gender:</legend>
+			         	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+			         	<label for="radio-choice-1">Female</label>
+
+			         	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+			         	<label for="radio-choice-2">Male</label>
+
+			    </fieldset>
+			</div>
+
+			<div data-role="fieldcontain">
+				<label for="select-choice-3" class="select">Your state:</label>
+				<select name="select-choice-3" id="select-choice-3" data-mini="true">
+					<option value="AL">Alabama</option>
+					<option value="MN">Minnesota</option>
+					<option value="NM">New Mexico</option>
+					<option value="WV">West Virginia</option>
+					<option value="WI">Wisconsin</option>
+					<option value="WY">Wyoming</option>
+				</select>
+			</div>
+
+		<fieldset class="ui-grid-a">
+				<div class="ui-block-a"><a href="#account" data-role="button" data-theme="d" data-mini="true">Cancel</a></div>
+				<div class="ui-block-b"><button type="submit" data-theme="a" data-mini="true">Register</button></div>
+	    </fieldset>
+
+	</form>
+	</div><!--/content-primary -->	
+         
+       </div><!-- /content --> 
+  </div><!-- /page -->    
+  
+</body>
+
+    
+
+    <!-- Style -->
+    <style>
+        #home {
+            background-image: url(images/food.png);
+            background-repeat:no-repeat;
+            background-position:center center;
+            background-size:cover; 
+            overflow:hidden;
+         }
+
+        #firstUL {
+            opacity: 0.5;
+        }
+        
+        .transparentLayer {
+            background:#000;
+            filter:alpha(opacity=40);   
+            height:600px;
+            left:0;
+            opacity:0.40;
+            position:absolute;
+            width:100%;
+        }
+        
+ 
+    </style>
+
+</html>

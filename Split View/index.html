@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<title>SettingsPage</title> 
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.css" />
+
+		<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0/jquery.mobile-1.3.0.min.js"></script>
+		<script type='text/javascript' src='simplesplitview-1.0.js'></script>
+	
+		<script type='text/javascript'>
+		
+			function showLeft(leftdiv, rightdiv, dontslideright, dontslideleft) {
+				$('#splitviewcontainer').simplesplitview('showLeft', leftdiv, rightdiv, dontslideright, dontslideleft);
+			}
+			
+			function showRight(rightdiv, dontslideright) {
+				$('#splitviewcontainer').simplesplitview('showRight', rightdiv, dontslideright);
+			}
+			
+			function navHome() {
+				$('#splitviewcontainer').simplesplitview('navHome');
+			}
+			
+			function navBack() {
+				$('#splitviewcontainer').simplesplitview('navBack');
+			}
+			
+			$('#mainpage').live('pageshow', function(event) {
+				document.getElementById('splitviewcontainer').padding = 44;
+				$('#splitviewcontainer').simplesplitview();
+			});
+	
+		</script>
+	</head>
+	<body>
+
+<!--MAIN PAGE  -->
+
+<div data-role="page" id="mainpage" data-title="SimpleSplitView" data-theme="a">
+
+	<div data-role="header" data-position="fixed" data-theme="a">
+		<a onclick="navBack();" data-icon="back" style="display: none;" id="splitviewcontainer_backbutton">Back</a>
+		<h1 id='appmaintitle'>Settings Page</h1>
+		<a onclick="navHome();" data-icon="home" style="display: none;" id="splitviewcontainer_homebutton">Home</a>
+	</div>
+
+	<div data-role="content" id="splitviewcontainer" class="splitviewcontainer" data-theme="d">
+		
+			<div class='leftside padsidestwenty' id='startpageleft'>
+				<ul data-role="listview" data-inset="true" data-theme="d" data-divider-theme="a">	
+					<li data-role="list-divider">Main Settings</li>
+					<li><a onclick="showRight('general');">General Settings</a></li>
+					<li><a onclick="showRight('cache');">Cache Settings</a></li>
+					<li><a onclick="showRight('downloads');">Downloads</a></li>
+					<li><a onclick="showRight('account');">Account</a></li>
+				</ul>					
+			</div>
+
+			<div class='rightside padsidestwenty' id='general'>
+				<h3>General Settings</h3>
+			</div>
+
+			<div class='rightside padsidestwenty' id='cache'>
+				<div data-role="fieldcontain">
+					<label for="select-choice-8" class="select">Data Sources:</label>
+					<select name="select-choice-8" id="select-choice-8" multiple="multiple" data-native-menu="false" data-icon="grid" data-iconpos="left">
+					    <option>Choose Data Source:</option>
+					        <option value="" selected="">NSP Drawings</option>
+					        <option value="">PSC Drawings</option>
+					        <option value="">PW Series 4 Development</option>
+					        <option value="">PW Series 4 Examples</option>
+					        <option value="">SPS Drawings</option>
+					</select>
+				</div>
+
+				<div data-role="fieldcontain">
+					<label for="select-choice-1" class="select">Save Cache for:</label>
+					<select name="select-choice-1" id="select-choice-1">
+						<option value="standard">Default: 7 days</option>
+						<option value="rush">1 month</option>
+						<option value="express">2 weeks</option>
+						<option value="overnight">5 days</option>
+						<option value="overnight">1 day</option>
+					</select>
+			    </div>
+
+			    <div data-role="fieldcontain">
+					<label for="select-choice-1" class="select">Cache Size up to:</label>
+					<select name="select-choice-1" id="select-choice-1">
+						<option value="standard">Default: 2 GB</option>
+						<option value="rush">5 GB</option>
+						<option value="express">5 MB</option>
+						<option value="overnight">1 MB</option>
+					</select>
+			    </div>
+
+				<div data-role="fieldcontain">
+				    <fieldset data-role="controlgroup">
+				    	<legend>Choose an extension:</legend>
+				         	<input type="radio" name="radio-choice-1" id="radio-choice-1" value="choice-1" checked="checked" />
+				         	<label for="radio-choice-1">Word Format</label>
+
+				         	<input type="radio" name="radio-choice-1" id="radio-choice-2" value="choice-2"  />
+				         	<label for="radio-choice-2">PDF Format</label>
+
+				         	<input type="radio" name="radio-choice-1" id="radio-choice-3" value="choice-3"  />
+				         	<label for="radio-choice-3">Text Format</label>
+
+				         	<input type="radio" name="radio-choice-1" id="radio-choice-4" value="choice-4"  />
+				         	<label for="radio-choice-4">Excel Format</label>
+				    </fieldset>
+				</div>
+				<hr>
+				<div data-role="fieldcontain">
+				    <div data-role="controlgroup" data-type="horizontal">
+				     	<legend>Caching:</legend>
+				         	<a href="#" data-role="button" data-theme="g">Start Caching</a>
+				         	<a href="#" data-role="button" data-theme="f">Delete Cache</a>
+				         	<a href="#" data-role="button" data-theme="b">Cancel Request</a>
+				    </div>
+				</div>
+
+			</div>
+
+			<div class='rightside padsidestwenty' id='downloads'>
+				<h3>My Downloads</h3>
+			</div>
+
+			<div class='rightside padsidestwenty' id='account'>
+				<h3>My Account</h3>
+
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup" data-type="horizontal">
+						<legend>Date of Birth:</legend>
+
+					    <label for="select-choice-month">Month</label>
+					<select name="select-choice-month" id="select-choice-month">
+						<option>Month</option>
+						<option value="jan">January</option>
+					</select>
+
+						<label for="select-choice-day">Day</label>
+					<select name="select-choice-day" id="select-choice-day">
+						<option>Day</option>
+						<option value="1">1</option>
+					</select>
+
+					<label for="select-choice-year">Year</label>
+					<select name="select-choice-year" id="select-choice-year">
+						<option>Year</option>
+						<option value="2011-2012">2011-2012</option>
+					</select>
+					</fieldset>
+				</div>
+			</div>
+	</div><!-- /content -->
+</div><!-- /page -->
+
+		<style type="text/css">
+			.padsidestwenty { 
+				padding-left: 20px; 
+				padding-right: 20px; 
+			}
+			pre {
+			    overflow-x: auto; /* Use horizontal scroller if needed; for Firefox 2, not needed in Firefox 3 */
+			    white-space: pre-wrap; /* css-3 */
+			    white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+			    white-space: -pre-wrap; /* Opera 4-6 */
+			    white-space: -o-pre-wrap; /* Opera 7 */
+			    word-wrap: break-word; /* Internet Explorer 5.5+ */
+			}
+
+			.ui-btn-up-f, .ui-btn-hover-f, .ui-btn-down-f {
+			  color: white;
+			  font-weight: bold;
+			  text-decoration: none; }
+
+			.ui-btn-up-f {
+			  border: 1px solid #711414;
+			  background: #ab2525;
+			  text-shadow: 0 -1px 1px #711414;
+			  background-image: -moz-linear-gradient(top, #c44f4f, #ab2525);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #c45e5e), color-stop(1, #9e3939));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#c44f4f', EndColorStr='#ab2525')"; }
+
+			.ui-btn-hover-f {
+			  border: 1px solid #6e0000;
+			  background: #b54a4a;
+			  text-shadow: 0 -1px 1px #690101;
+			  background-image: -moz-linear-gradient(top, #d47272, #b54a4a);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #d47272), color-stop(1, #b54a4a));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#d47272', EndColorStr='#b54a4a')"; }
+
+			.ui-btn-down-f {
+			  border: 1px solid #782323;
+			  background: #c44f4f;
+			  text-shadow: 0 -1px 1px #782323;
+			  background-image: -moz-linear-gradient(top, #9e3939, #c44f4f);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #9e3939), color-stop(1, #c44f4f));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#9e3939', EndColorStr='#c44f4f')"; 
+			}
+
+
+			.ui-btn-up-g, .ui-btn-hover-g, .ui-btn-down-g {
+			  color: white;
+			  font-weight: bold;
+			  text-decoration: none; 
+			}
+
+			.ui-btn-up-g {
+			  border: 1px solid #167014;
+			  background: #456B1C;
+			  text-shadow: 0 -1px 1px #167014;
+			  background-image: -moz-linear-gradient(top, #599131, #456B1C);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #9CC55F), color-stop(1, #5B9F39));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#80C54F', EndColorStr='#456B1C')"; 
+			}
+
+			.ui-btn-hover-g {
+			  border: 1px solid #006E1F;
+			  background: #4DA950;
+			  text-shadow: 0 -1px 1px #1B6901;
+			  background-image: -moz-linear-gradient(top, #73D589, #4DA950);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #73D589), color-stop(1, #4DA950));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#73D589', EndColorStr='#4DA950')"; 
+			}
+
+			.ui-btn-down-g {
+			  border: 1px solid #237823;
+			  background: #80C54F;
+			  text-shadow: 0 -1px 1px #237823;
+			  background-image: -moz-linear-gradient(top, #4C9F39, #80C54F);
+			  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #4C9F39), color-stop(1, #80C54F));
+			  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#4C9F39', EndColorStr='#80C54F')"; 
+			}
+
+		</style>
+
+</body>
+</html>
+		

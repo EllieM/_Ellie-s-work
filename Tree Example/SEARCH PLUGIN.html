@@ -1,0 +1,94 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>	
+
+	<script type="text/javascript" src="jsTree/jquery.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.jstree.js"></script>
+</head>
+<body>
+	
+	<div class="panel">
+		<h3>Using Adv_Search</h3>
+
+	<input id="search1" class="button" type="button" rel="ADV_SEARCH" value="search for ADV_SEARCH"></input>
+	<input id="search2" class="button" type="button" rel="Root" value="search for Root"></input>
+	<input id="search3" class="button" type="button" rel="Child" value="search for Child"></input>
+	<input id="clear" class="button" type="button" value="Clear search"></input>
+
+		<div id="demo2" class="demo" style="height:236px;">
+
+			<ul>
+				<li>
+					<a  href="#">Root node 1</a>
+					<ul>
+						<li>
+							<a href="#">Child node 1</a>
+						</li>
+
+						<li>
+							<a href="#">Child node 2</a>
+						</li>
+
+						<li>
+							<a href="#">ADV_SEARCH</a>
+						</li>
+
+						<li>
+							<a href="#">Child node 4</a>
+						</li>
+					</ul>
+				</li>
+
+					<li>
+						<a href="#">Root node 2</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+
+	<script>
+		$(function () {
+			$("#search1, #search2, #search3").click(function () {
+				$("#demo2").jstree("search", $(this).attr("rel"));
+			});
+			$("#clear").click(function () {
+				$("#demo2").jstree("clear_search");
+			});
+			$("#demo2")
+				.jstree({ 
+					"plugins" : [ "themes", "html_data", "search", "adv_search" ]
+				});
+		});
+
+	</script>
+
+<style>
+
+	.panel {
+	    margin: 0px 20px;
+	}
+
+	.demo {
+	    width: 255px;
+	    float: left;
+	    margin: 0px;
+	    border: 1px solid gray;
+	    background: none repeat scroll 0% 0% white;
+	    overflow: auto;
+	}
+
+	h3 {
+	    margin: 0px;
+	    padding: 0.5em 0px;
+	    font-size: 11.5pt;
+	    font-family: Georgia;
+	    color: gray;
+	    clear: both;
+	}
+
+</style>
+
+</body>
+</html>

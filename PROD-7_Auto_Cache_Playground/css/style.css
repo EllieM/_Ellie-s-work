@@ -1,0 +1,119 @@
+
+.nav-glyphish-example .ui-btn .ui-btn-inner { 
+    padding-top: 35px !important; 
+}
+
+.nav-glyphish-example .ui-btn .ui-icon { 
+    width: 30px!important; 
+    height: 30px!important; 
+    margin-left: -15px !important; 
+    box-shadow: none!important; 
+    -moz-box-shadow: none!important; 
+    -webkit-box-shadow: none!important; 
+    -webkit-border-radius: 0 !important; 
+    border-radius: 0 !important; 
+}
+
+#home .ui-icon { 
+    background:  url(icons/house.png) 50% 50% no-repeat;
+}
+
+#nav .ui-icon { 
+    background:  url(icons/signpost.png) 50% 50% no-repeat;
+} 
+
+#magnify .ui-icon { 
+    background:  url(icons/magnify.png) 50% 50% no-repeat;
+} 
+
+#acc .ui-icon { 
+    background:  url(icons/persondot.png) 50% 50% no-repeat;
+} 
+
+#cache .ui-icon { 
+    background:  url(icons/shoebox.png) 50% 50% no-repeat;
+} 
+
+
+#gear .ui-icon { 
+    background:  url(icons/gear.png) 50% 50% no-repeat;
+} 
+
+.ui-li {
+    height: 60px;
+}
+
+.ui-li img {
+    width:55px; 
+    height:55px;
+}
+
+.counterRed {
+    color: #8A2908;
+}
+.counterGreen {
+    color: Green;
+}
+
+.logo {
+    
+    width: 150px;
+    height: 47px;
+}
+
+/* form style */
+label.error {
+    float: left;
+    color: red;
+    padding-top: .5em;
+    vertical-align: top;
+    font-weight:bold;
+}
+
+/* EXPLORER STYLE */
+/* h2 { text-align:center; color:#060; } */
+
+#menu, #get_file_details{
+	display: none;
+}
+
+.folder, .file {
+    font-family:sans;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.folder p {
+    padding-top: 55px;
+}
+
+.file p {
+    padding-top: 55px;
+}
+
+
+.folder {
+    background: url('icons/folder.png');
+    background-repeat: no-repeat;    
+    background-size: 64px 64px;
+    background-position:center; 
+    
+	margin:5px;
+	padding-top:25px;
+	text-align:center;
+    
+    border-style:outset;
+}
+
+.file {
+    background: url('icons/file.png');
+    background-repeat: no-repeat;    
+    background-size: 64px 64px;
+    background-position:center; 
+    
+	margin:5px;
+	padding-top:25px;
+	text-align:center;
+    
+    border-style:outset;
+} 

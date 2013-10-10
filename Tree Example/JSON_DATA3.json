@@ -1,0 +1,16 @@
+[
+	{
+	    "data" : "a1",
+	    "attr" : { 
+	          "id" : "aa1"
+	    },
+	    "state" : "closed",
+		"children" : [ "Child 1", "Child 2" ]
+	},
+	{
+	    "data" : "a2",
+	    "attr" : { 
+	          "id" : "aa2"
+	    }
+	}
+]

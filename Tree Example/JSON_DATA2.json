@@ -1,0 +1,30 @@
+[
+	{ 
+		"data" : "Node 2", "attr": { "id": "jan_2b" },
+ 
+		"children" : [
+			{ 
+				"data" : "Child 2", 
+                "attr": { "id": "jan_2" },
+			    "state" : "closed" 
+			} 
+		], 
+		"state" : "open" 
+	},
+
+	{ 
+		"data" : "Node 22", "attr": { "id": "jan_2v" },	
+		
+		"children" : [
+			{ 
+				"data" : "Child 22", 
+                "attr": { "id": "jan_22" },
+			    "state" : "closed" 
+			} 
+		], 
+
+		"state" : "closed" 
+	},	
+
+	"Ajax node"
+]

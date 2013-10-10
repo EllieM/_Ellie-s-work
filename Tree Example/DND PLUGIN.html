@@ -1,0 +1,97 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<link type="text/css" rel="stylesheet" href="css/style.css"/>	
+
+	<script type="text/javascript" src="jsTree/jquery.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.cookie.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.hotkeys.js"></script>
+	<script type="text/javascript" src="jsTree/jquery.jstree.js"></script>
+</head>
+<body>
+	
+	<div id="dragID" class="jstree-draggable">
+	</div>
+
+	<hr/>
+
+	<div id="dropID" class="jstree-drop">
+	</div>
+
+	<script>
+
+		$(function () {
+			$("#dragID").jstree({ 
+
+				"json_data" : {
+					"data" : [
+						{ 
+							"data" : "Node 1", 
+							"metadata" : { id : 1 },
+							"children" : [ "Child 1", "Child 2" ]
+						},
+						{ 
+							"data" : "Node 11", 
+							"metadata" : { id : 11 },
+							"children" : [ "Child 11", "Child 22" ]
+						}						
+					]
+				},				
+
+				"crrm" : { 
+					"move" : {
+						"check_move" : function (m) { 
+							return false;
+						}
+					}
+				},
+
+				"dnd" : {
+					"drop_target" : false,
+					"drag_target" : false
+				},
+
+				"plugins" : [ "themes", "json_data", "crrm", "dnd" ]
+			});
+		});
+
+
+		$(function () {
+			$("#dropID").jstree({ 
+
+				"json_data" : {
+					"ajax" : {
+						"url" : "json_data3.json",
+						"data" : function (n) { 
+							return { id : n.attr ? n.attr("id") : 0 }; 
+						}
+					},
+
+					"progressive_render" : false,
+				},				
+
+				"dnd" : {
+					"drop_finish" : function () { 
+						alert("DROP"); 
+					},
+
+					"drag_check" : function (data) {
+						return { 
+							after : false, 
+							before : false, 
+							inside : true 
+						};
+					},
+
+					"drag_finish" : function (data) { 
+						alert("DRAG OK"); 
+					}
+				},
+
+				"plugins" : [ "themes", "json_data", "dnd" ]
+			});
+		});
+
+	</script>
+
+</body>
+</html>

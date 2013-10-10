@@ -1,0 +1,316 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>My Portfolio</title>
+    	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    	<meta name="apple-mobile-web-app-capable" content="yes" />
+        
+        <link href="jquery-mobile/jquery.mobile-1.3.0.min.css" rel="stylesheet" type="text/css" />
+        <link href="style/main.css" rel="stylesheet" type="text/css" />
+        <link href="panning-slideshow.css" rel="stylesheet"/>
+        <link href='http://fonts.googleapis.com/css?family=Niconne' rel='stylesheet' type='text/css'/>
+
+        <script src="jquery-mobile/jquery-1.8.2.min.js" type="text/javascript"></script>
+        <script src="jquery-mobile/jquery.mobile-1.3.0.min.js" type="text/javascript"></script> 
+        <script src="js/jquery.easing.1.3.js"></script>
+        <script src="js/jquery.timer.js"></script>
+        <script src="js/image-rotator.js"></script>
+        <script src="js/jquery.isotope.js" type="text/javascript"></script>
+    </head> 
+<body> 
+
+<!--MAIN PAGE-->       
+<div data-role="page" id="homePage" data-theme="a" class="my-page">
+    
+    
+    <div data-role="header" data-position="fixed" data-id="header" class="logo">
+        <div class="hr">
+           <img src='images/ornamental-sm.png'>
+           <h1>Ellie's Mobile Web Design</h1>
+           <img src='images/ornamental-sm.png'>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#portfolioPage">Portfolio</a></li>
+                <li><a href="#contactPage">Contact</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div class="banner"> </div>
+    </div><!-- /header -->
+
+       
+<div data-role="content">
+
+        <div id="window">       
+            <ul id="slideshow">
+                <li class="box1"><img src="images/2.jpg" /></li>
+                <li class="box2"><img src="images/1.jpg" /></li>
+                <li class="box3"><img src="images/3.jpg" /></li>
+                <li class="box4"><img src="images/4.jpg" /></li>
+            </ul>
+        </div>  
+        <div id="content">
+            <h1>Latest Projects</h1>
+            <p>This slideshow uses a few amazing photos found on Flickr. You can find links to them below. This is only the example page. Head back to <a href="#" title="Panning Slideshow Tutorial">Build Internet for the full tutorial</a> and explanation.</p>
+        </div>
+
+    <div class="clearer"></div>
+    
+    <div id="container">
+        <div id="columns">
+            <div class="column-1-3">
+                <div class="white-box">
+                    <div class="box-title">
+                        Services
+                        <div class="subtitle"><img src="images/subtitle-what-we-can-do.png" alt="what we can do" /></div>
+                        <div class="icon"><img src="images/title-icon-services.png" alt="" /></div>
+                    </div>
+                    
+                    <div class="box-content fixed-height">
+                        <ul class="services">
+                            <li class="icon-web-dev"><a href="#">Web Design &amp; Development &raquo;</a></li>
+                            <li class="icon-seo"><a href="#">Search Engine Optimization &raquo;</a></li>
+                            <li class="icon-logo-design"><a href="#">Logo Design &raquo;</a></li>
+                            <li class="icon-mobile-apps"><a href="#">Web &amp; Mobile Apps &raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/end .column-1-3 -->
+        
+            <div class="column-1-3">
+                <div class="white-box">
+                    <div class="box-title">
+                        Portfolio
+                        <div class="subtitle"><img src="images/subtitle-our-previous-works.png" alt="our previous works" /></div>
+                        <div class="icon"><img src="images/title-icon-portfolio.png" alt="" /></div>
+                    </div>
+                    
+                    <div class="box-content fixed-height">
+                        <ul class="portfolio">
+                            <li><a href="#"><img src="images/5.jpg" /></a></li>
+                            <li><a href="#"><img src="images/6.jpg" /></a></li>
+                            <li><a href="#"><img src="images/7.png" /></a></li>
+                            <li><a href="#"><img src="images/8.jpg" /></a></li>
+                            <li><a href="#"><img src="images/9.png" /></a></li>
+                            <li><a href="#"><img src="images/10.jpg" /></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div><!--/end .column-1-3 -->
+            
+            <div class="column-1-3">
+                <div class="white-box">
+                    <div class="box-title">
+                        Hire us
+                        <div class="subtitle"><img src="images/subtitle-lets-work-together.png" alt="let's work together" /></div>
+                        <div class="icon"><img src="images/title-icon-contact.png" alt="" /></div>
+                    </div>
+                    
+                    <div class="box-content fixed-height">
+                        <form action="" method="post" >
+                            <div data-role="fieldcontain">  
+                                <input data-mini="true"  name="textinput-fc" id="textinput-fc" placeholder="Name" value="" type="text">
+                            </div>
+                            <div data-role="fieldcontain">
+                                <input data-mini="true"  name="textinput-fc" id="textinput-fc" placeholder="Email" value="" type="text">
+                            </div>
+                            <textarea  data-mini="true" cols="10" rows="4" name="textarea" placeholder="Message" id="textarea" ></textarea>
+                            <div align="right">
+                            <button data-mini="true" data-inline="true" data-theme="b" id="submit" type="submit" data-corners="false">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div><!--/end .column-1-3 -->
+            <div class="clearer"></div>
+
+        </div><!-- /columns -->
+    </div><!--/end container -->
+
+</div><!--/content-->
+
+        <div id="footer">
+        <div class="footer-content">
+            Copyright &copy; 2012-2013 <a href="#">Ellie's Web Design</a>. Coded by <a href="#">Elena Momtcheva &copy;</a>
+        </div>
+        </div><!--/end #footer -->
+
+</div><!--/MAIN PAGE-->
+   
+<!--PORTFOLIO PAGE-->       
+<div data-role="page" id="portfolioPage" data-theme="a" class="my-page">
+      
+    <div data-role="header" data-position="fixed" data-id="header" class="logo">
+        <div class="hr">
+           <img src='images/ornamental-sm.png'>
+           <h1>Ellie's Mobile Web Design</h1>
+           <img src='images/ornamental-sm.png'>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage">Home</a></li>
+                <li><a href="#" class="ui-btn-active ui-state-persist" >Portfolio</a></li>
+                <li><a href="#contactPage">Contact</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div class="banner"> </div>
+    </div><!-- /header -->
+
+<div data-role="content">
+
+    <div class="portfolioFilter">
+        <a href="#" data-filter="*" class="current">All Categories</a>
+        <a href="#" data-filter=".people">Mobile</a>
+        <a href="#" data-filter=".places">Web</a>
+        <a href="#" data-filter=".food">Design</a>
+        <a href="#" data-filter=".objects">Objects</a>
+    </div>
+
+    <div class="portfolioContainer">
+
+        <div class="objects">
+            <img src="images/watch.jpg" alt="image">
+        </div>
+        
+        <div class="people places">
+            <img src="images/surf.jpg" alt="image">
+        </div>  
+
+        <div class="food">
+            <img src="images/burger.jpg" alt="image">
+        </div>
+        
+        <div class="people places">
+            <img src="images/subway.jpg" alt="image">
+        </div>
+
+        <div class="places objects">
+            <img src="images/trees.jpg" alt="image">
+        </div>
+
+        <div class="people food objects">
+            <img src="images/coffee.jpg" alt="image">
+        </div>
+
+        <div class="food objects">
+            <img src="images/wine.jpg" alt="image">
+        </div>  
+        
+        <div class="food">
+            <img src="images/salad.jpg" alt="image">
+        </div>         
+    </div><!-- /portfolioContainer -->
+</div><!-- /content -->
+
+<script type="text/javascript">
+
+$(window).load(function(){
+
+    var $container = $('.portfolioContainer');
+    $container.isotope({
+        filter: '*',
+        animationOptions: {
+            duration: 750,
+            easing: 'linear',
+            queue: false
+        }
+    });
+ 
+    $('.portfolioFilter a').click(function(){
+        $('.portfolioFilter .current').removeClass('current');
+        $(this).addClass('current');
+ 
+        var selector = $(this).attr('data-filter');
+        $container.isotope({
+            filter: selector,
+            animationOptions: {
+                duration: 750,
+                easing: 'linear',
+                queue: false
+            }
+         });
+         return false;
+    }); 
+});
+
+</script>
+
+</div> <!--PORTFOLIO PAGE-->    
+
+
+<!--CONTACT PAGE-->       
+<div data-role="page" id="contactPage" data-theme="a" class="my-page">
+    
+    
+    <div data-role="header" data-position="fixed" data-id="header" class="logo">
+        <div class="hr">
+           <img src='images/ornamental-sm.png'>
+           <h1>Ellie's Mobile Web Design</h1>
+           <img src='images/ornamental-sm.png'>
+        </div>
+
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#homePage">Home</a></li>
+                <li><a href="#portfolioPage">Portfolio</a></li>
+                <li><a href="#" class="ui-btn-active ui-state-persist">Contact</a></li>
+            </ul>
+        </div><!-- /navbar -->
+        <div class="banner"> </div>
+    </div><!-- /header -->
+
+       
+<div data-role="content">
+
+    <div id="contactContent" class="m_10">
+        <!--Block Starts-->
+        <div class="block mod_container">
+            <h2>Contact</h2>
+            <div class="contact_page">
+            <!--Google Maps Start-->
+            <iframe width="100%" height="250" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Zurich,+Switzerland&amp;aq=0&amp;oq=Zurich&amp;sll=37.0625,-95.677068&amp;sspn=58.988897,135.263672&amp;t=h&amp;ie=UTF8&amp;hq=&amp;hnear=Zurich,+Canton+of+Zurich,+Switzerland&amp;ll=47.367123,8.545673&amp;spn=0.001285,0.005364&amp;z=18&amp;iwloc=A&amp;output=embed">
+            </iframe>
+            <!--Google Maps Ends-->
+            <address>
+                <b>Ellie's Mobile Web Design</b><br/>
+                1036 Quaibucke, Zurich<br/>
+                Switzerland<br/>
+                44-67-9569<br/>
+            </address>
+            </div>
+        </div>
+        <!--Block Ends-->
+        <!--Form Starts-->
+        <div class="block">
+            <h2>Leave a message</h2>
+            <form action="#" method="post">
+                <ul id="contact_form">
+                    <li><input type="text" id="name" name="name" placeholder="NAME" /></li>
+                    <li><input type="text" id="name" name="name" placeholder="EMAIL" /></li>
+                    <li><input type="text" id="name" name="name" placeholder="PHONE" /></li>
+                    <li><textarea cols="30" rows="4" id="message" name="message" placeholder="COMMENTS"></textarea></li>               
+                    <div align="right">
+                        <button data-inline="true" data-theme="b" id="submit" value="Send" type="submit" data-corners="false">Submit</button>
+                    </div>              
+                </ul>
+            </form>
+        </div>
+        <!--Form Ends-->       
+ 
+</div><!--/content-->
+
+        <div id="footer">          
+        <div class="footer-content">
+            Copyright &copy; 2012-2013 <a href="#">Ellie's Web Design</a>. Coded by <a href="#">Elena Momtcheva &copy;</a>
+        </div>
+            
+        </div><!--/end #footer -->
+
+</div><!--/CONTACT PAGE-->
+
+</body>
+</html>

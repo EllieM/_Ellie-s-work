@@ -1,0 +1,50 @@
+<!-- SETTINGS PAGE -->          
+
+<div data-role="page" id="settingsPage" data-theme="c">
+
+   <!-- Header -->
+   <div data-role="header" data-position="fixed" data-id="header" data-theme="a">
+      <center><img src="img/logo.png" alt="logo" class="logo"></center>
+   </div>
+
+  <div data-role="content">
+     <h2>Settings</h2>
+      
+     <a href="javaScript: CacheManager.init();" data-role="button" data-theme="a" data-inline="true">Start Caching </a>	
+     <a href="javaScript: CacheManager.cancelCaching();" data-role="button" data-theme="a" data-inline="true">Cancel Request</a>
+     <a href="javaScript: CacheManager.deleteCache();" data-role="button" data-theme="a" data-inline="true">Delete Cache</a>
+     <a href="javaScript: CacheManager.printAllCachedKeys();" data-role="button" data-theme="a" data-inline="true">Print All Cached Keys</a>
+      
+    <br/> 
+    Cached URLs: <span id="cachedKeysCount"></span>
+    <br/> 
+    URLs  
+    <textarea id="targetText" rows="10" cols="50" style="height: 150px;">
+    </textarea>      
+    <br/>
+    
+    <br/>
+    DOCs to Cache: <span id="docsToCacheCount"></span>  
+      |
+    Cached: <span id="cachedDocsCount"></span> 
+    <br/>
+    IDs
+    <textarea id="targetTextDoc" rows="10" cols="50" style="height: 150px;">
+    </textarea>     
+  
+  </div><!-- /content -->
+
+   <!-- Footer -->
+   <div data-role="footer" class="nav-glyphish-example" data-position="fixed" data-id="footer" data-theme="a">
+      <div data-role="navbar" class="nav-glyphish-example" data-grid="d">
+        <ul>
+            <li><a href="#mainPage" id="home" data-icon="custom" data-transition="slide">Home</a></li>
+            <li><a href="#navPage" id="nav" data-icon="custom" data-transition="slide">Navigation</a></li>
+            <li><a href="search.html" id="magnify" data-icon="custom" data-transition="slide">Search</a></li>
+            <li><a href="#cachePage" id="cache" data-icon="custom" data-transition="slide">Offline Content</a></li>
+            <li><a href="#" id="gear" data-icon="custom" data-transition="slide" class="ui-btn-active">Settings</a></li>
+        </ul>
+      </div>
+   </div>     
+             
+</div><!-- /page -->        
